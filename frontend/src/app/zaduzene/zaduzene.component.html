@@ -1,0 +1,44 @@
+<body>
+  <div class="header">
+<h1>ZADUZENE KNJIGE</h1>
+  </div>
+<div class="pozadina">
+  <h2>Spisak zaduzenih knjiga</h2>
+
+<div *ngIf="prikazi==false">{{poruka}}</div>
+<div *ngFor="let k of zaduzeneKnjige; let i = index" class="KNJIGG">
+<mat-card class="example-card">
+    <mat-card-header>
+      
+      <mat-card-title>{{k.naziv}} </mat-card-title>
+      <mat-card-subtitle>{{k.autor}}</mat-card-subtitle>
+    </mat-card-header>
+   
+        <img mat-card-image [src]="k.slika" alt="Fotografija knjige"> 
+
+    <mat-card-content>
+      <p [ngStyle]="preostaliDani[i]>0 && {'color': 'black'} || preostaliDani[i]<0 && {'color': 'orange'}">
+        {{preostaliDani[i]}}
+        
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      
+      <button mat-button [hidden]="k.datumVrac!=null"  (click)="vrati(k.idk)">VRATI</button>
+      <button mat-button  [hidden]=" kor.blokiran==1" (click)="detalji(k.idk)">DETALJI</button>
+      <button mat-button [hidden]="k.produzio==1 || kor.blokiran==1"  (click)="produzi(k)">PRODUZI</button>
+    </mat-card-actions>
+  </mat-card>
+  
+</div>
+<span style='color: red'>{{poruka}}</span>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<button (click)="vratiSe()">Nazad na pocetnu</button>
+</div>
+<div class="footer"></div>
+</body>

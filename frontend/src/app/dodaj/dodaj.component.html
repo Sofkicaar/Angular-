@@ -1,0 +1,140 @@
+<body>
+    <div class="header">
+        <h2>DODAVANJE KNJIGE</h2>
+    </div>
+    <div class="pozadina">
+        <div *ngIf="kor.tip=='admin'">
+<h3>Dodaj novu knjigu u biblioteku</h3>
+<table>
+    <tr>
+        <td>Naziv knjige:</td>
+        <td>
+            <input type="text" name="naziv" [(ngModel)]="naziv">
+        </td>
+    </tr>
+    <tr>
+        <td>Autor(i):</td>
+        <td>
+            <input type="text" name="pisac" [(ngModel)]="pisac">
+        </td>
+    </tr>
+    <tr>
+        <td>Jezik:</td>
+        <td>
+            <input type="text" name="jezik" [(ngModel)]="jezik">
+        </td>
+    </tr>
+    <tr>
+        <td>Izdavac:</td>
+        <td>
+            <input type="text" name="izdavac" [(ngModel)]="izdavac">
+        </td>
+    </tr>
+    <tr>
+        <td>Godina izdavanja:</td>
+        <td>
+            <input type="text" name="godinaIzdavanja" [(ngModel)]="godinaIzdavanja">
+        </td>
+    </tr>
+    <tr>
+        <td>Zanr: </td>
+        <br>
+        <select  name="zanr" multiple="true" (change)="dodajZanr($event)">
+            <option *ngFor="let z of zanrovi" [value]="z">{{z}}</option>
+        </select>
+      
+                
+    </tr>
+    <tr>
+        <td>Broj knjiga na stanju:</td>
+        <td>
+            <input type="number" name="brojKnjiga" [(ngModel)]="brojKnjiga">
+        </td>
+    </tr>
+    <tr>
+        <td>Fotografija knjige (opciono):</td>
+        <input type="file" name="slika" (change)="izaberiSliku($event)">
+    </tr>
+    <tr>
+        <img src="{{url}}">
+      
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="dodajKnjigu()">Dodaj knjigu</button>
+        </td>
+    </tr>
+{{poruka}}
+</table>
+</div>
+<div *ngIf="kor.tip=='citalac'">
+    <h3>Dodaj zahtev za novu knjigu</h3>
+    <table>
+        <tr>
+            <td>Naziv knjige:</td>
+            <td>
+                <input type="text" name="naziv" [(ngModel)]="naziv">
+            </td>
+        </tr>
+        <tr>
+            <td>Autor(i):</td>
+            <td>
+                <input type="text" name="pisac" [(ngModel)]="pisac">
+            </td>
+        </tr>
+        <tr>
+            <td>Jezik:</td>
+            <td>
+                <input type="text" name="jezik" [(ngModel)]="jezik">
+            </td>
+        </tr>
+        <tr>
+            <td>Izdavac:</td>
+            <td>
+                <input type="text" name="izdavac" [(ngModel)]="izdavac">
+            </td>
+        </tr>
+        <tr>
+            <td>Godina izdavanja:</td>
+            <td>
+                <input type="text" name="godinaIzdavanja" [(ngModel)]="godinaIzdavanja">
+            </td>
+        </tr>
+        <tr>
+            <td>Zanr: </td>
+           
+                <br>
+                <select  name="zanr" multiple="true" (change)="dodajZanr($event)">
+                    <option *ngFor="let z of zanrovi" [value]="z">{{z}}</option>
+                </select>
+               
+        </tr>
+        <tr>
+            <td>Broj knjiga na stanju:</td>
+            <td>
+                <input type="number" name="brojKnjiga" [(ngModel)]="brojKnjiga">
+            </td>
+        </tr>
+        <tr>
+            <td>Fotografija knjige (opciono):</td>
+            <input type="file" name="slika" (change)="izaberiSliku($event)">
+        </tr>
+        <tr>
+            <img src="{{url}}">
+          
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button (click)="dodajZahtev()">Dodaj</button>
+            </td>
+        </tr>
+    {{poruka}}
+    </table>
+    </div>
+    {{poruka}}
+<button (click)="vratiSe()">Nazad na pocetnu</button>
+<br>
+<button (click)="pocetna()">Nazad na glavnu</button>
+</div>
+<div class="footer"></div>
+</body>

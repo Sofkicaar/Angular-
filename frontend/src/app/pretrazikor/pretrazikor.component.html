@@ -1,0 +1,45 @@
+<body>
+    <div class="header">
+<h1>PRETRAGA</h1>
+</div>
+<div class="pozadina">
+<div *ngFor="let kor of sviKor">
+    <h3>Korisnici</h3>
+    <div *ngIf="kor.tip!='admin'">
+
+        <table>
+            <tr>
+                <td>Ime korisnika</td>
+                {{kor.ime}}
+            </tr>
+            <tr>
+                <td>Prezime korisnika:</td>
+                {{kor.prezime}}
+                <button (click)="azurirajkor(kor)">Azuriraj</button>
+                <button (click)="blokirajkor(kor)">Blokiraj</button>
+            </tr>
+            
+        </table>
+    </div>
+
+</div>
+
+<div *ngFor="let k of sveKnjige">
+    <h2>Knjige</h2>
+        <table>
+            <tr>
+                <td>Naziv knjige</td>
+                {{k.naziv}}
+                
+            </tr>
+            <tr>
+                <td>Autor knjige</td>
+                {{k.pisac}}
+                <button (click)="azurirajknj(k)">Azuriraj</button>
+            </tr>
+
+        </table>
+    </div>
+</div>
+<div class="footer"></div>
+</body>

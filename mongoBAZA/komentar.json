@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "630f2a63b4b818859e2306a1"
+  },
+  "idk": 8,
+  "ostavio": "sofija",
+  "ocena": 7,
+  "kom": "Knjiga je izvanredno napisana i oslikava sudbinu mnogih porodica.",
+  "datum": "31-08-2022 11:31:15",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630f3402b4b818859e230702"
+  },
+  "idk": 5,
+  "ostavio": "sofija",
+  "ocena": 9,
+  "kom": "Andric maestralno prodire u dusu svake majke, i svih onih koji su se suocavali sa turskom nepravdom i nasiljem. ",
+  "datum": "31-08-2022 12:12:18 ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630f53c57079283a476edb86"
+  },
+  "idk": 8,
+  "ostavio": "goga",
+  "ocena": 5,
+  "kom": "Knjiga je top",
+  "datum": "31-08-2022 14:27:49",
+  "__v": 0
+}]

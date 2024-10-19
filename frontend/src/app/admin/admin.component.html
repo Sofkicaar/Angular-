@@ -1,0 +1,78 @@
+<body>
+  <div class="header">
+    <h1>ADMIN</h1>
+</div>
+<div class="pozadina">
+<h2>Admin</h2>
+<button mat-button [matMenuTriggerFor]="menu">Meni</button>
+<mat-menu #menu="matMenu">
+ 
+  <button mat-menu-item (click)="pretraga()">Pretrazi knjige</button>
+  <button mat-menu-item (click)="profil()">Profil korisnika</button>
+  <button mat-menu-item (click)="azuriraj()">Azuriraj knjigu i korisnika</button>
+  <button mat-menu-item (click)="dodajKnjigu()">Dodaj knjigu</button>
+  <button mat-menu-item (click)="dodajKorisnika()">Dodaj korisnika</button>
+  <button mat-menu-item (click)="obrisiKnj()">Obrisi knjigu</button>
+  <button mat-menu-item (click)="obrisiKor()">Obrisi korisnika</button>
+  <button mat-menu-item (click)="vratiSe()">Nazad na glavnu stranicu</button>
+  <button mat-menu-item (click)="logout()">Odjavi se</button>
+</mat-menu>
+<br>
+Unesite broj dana dozvoljenih za zaduzivanje i za produzavanje knjige:
+<br>
+<input type="number" name="dani" [(ngModel)]="dani">
+
+<br>
+
+<div *ngFor="let z of zahtevi ">
+  <div *ngIf="z.prihvati==0">
+<table>
+  Zahtevi za registraciju:
+  <tr>
+    <td>Ime:</td>
+    <td>{{z.ime}}</td>
+  </tr>
+  <tr>
+    <td>Prezime:</td>
+    <td>{{z.prezime}}</td>
+  </tr>
+  <tr>
+    <td>Korisnicko ime:</td>
+    <td>{{z.korisnicko_ime}}</td>
+  </tr>
+  <tr>
+    <td>Adresa:</td>
+    <td>{{z.adresa}}</td>
+  </tr>
+  <tr>
+    <td>Kontakt:</td>
+    <td>{{z.kontakt}}</td>
+  </tr>
+  <tr>
+    <td>Imejl:</td>
+    <td>{{z.imejl}}</td>
+  </tr>
+  <tr>
+    <td>Tip:</td>
+    <td>{{z.tip}}</td>
+  </tr>
+  <tr>
+    <td>Slika:</td>
+    <td>{{z.img}}</td>
+  </tr>
+  <tr>
+   
+    <td><button (click)="prihvati(z)">Prihvati zahtev</button></td>
+    <td><button (click)="odbij(z)">Odbij zahtev</button></td>
+  </tr>
+</table>
+</div>
+</div>
+<button (click)="potvrdi()">Potvrdi</button>
+
+</div>
+<div class="footer">
+</div>
+</body>
+
+

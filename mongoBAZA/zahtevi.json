@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "630e71f0b3df16e0d26b8067"
+  },
+  "idKnj": 6,
+  "naziv": "Na Drini cuprija",
+  "pisac": "Ivo Andric",
+  "godinaIzdavanja": 1987,
+  "zanr": "klasika",
+  "uzeta": 0,
+  "jezik": "srpski",
+  "izdavac": "Srpska knjizevna zadruga",
+  "brojKnjiga": 3,
+  "img": "../../assets/knjigapodr.jpg",
+  "prihvati": 1,
+  "ocena": "",
+  "__v": 0
+}]

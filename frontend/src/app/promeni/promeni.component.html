@@ -1,0 +1,38 @@
+<body>
+    <div class="header">
+        <h2>PROMENA</h2>
+    </div>
+<div class="pozadina">
+<h1>Promeni sifru</h1>
+<table>
+    <tr>
+        <td>Stara lozinka:</td>
+        <td>
+            <input type='password' name='staraloz' [(ngModel)]="staraloz">
+        </td>
+    </tr>
+    <tr>
+        <td>Nova lozinka:</td>
+        <td>
+            <input type='password' name='loz1' [(ngModel)]="loz1" >
+        </td>
+    </tr>
+    <tr>
+        <td>Nova lozinka:</td>
+        <td>
+            <input type='password' name='loz2' [(ngModel)]="loz2" >
+        </td>
+    </tr>
+    <tr>
+        <td colspan='2'>
+            <button (click)="promeniSifru()">Promeni</button>
+        </td>
+    </tr>
+</table>
+<span style='color: red'>{{poruka}}</span>
+<button (click)="vratiSe()">Nazad na pocetnu</button>
+<br>
+<button (click)="pocetna()">Nazad na glavnu</button>
+</div>
+<div class="footer"></div>
+</body>

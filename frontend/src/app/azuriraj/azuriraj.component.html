@@ -1,0 +1,182 @@
+<body>
+    <div class="header">
+        <h1>AZURIRANJE</h1>
+    </div>
+    <div class="pozadina">
+<div *ngIf="kor.tip!='citalac'">
+   
+<div *ngFor="let k of knjiga">
+    <h2>Azuriraj knjigu</h2>
+    <table>
+        <tr>
+            <td>Naziv:</td>
+            <input type="text" name="naziv" [(ngModel)]="naziv"  [placeholder]="k.naziv" [value]="k.naziv" >
+        </tr>
+        <tr>
+            <td>Autor:</td>
+            <input type="text" name="pisac" [(ngModel)]="pisac"  [placeholder]="k.pisac" [value]="k.pisac" >
+        </tr>
+        <tr>
+            <td>Jezik:</td>
+            <input type="text"  name="jezik" [(ngModel)]="jezik" [placeholder]="k.jezik" [value]="k.jezik">
+        </tr>
+        <tr>
+            <td>Izdavac:</td>
+            <input type="text" name="izdavac" [(ngModel)]="izdavac" [placeholder]="k.izdavac" [value]="k.izdavac" >
+        </tr>
+        <tr>
+            <td>Godina izdanja:</td>
+            <input type="number" name="godinaIzdavanja" [(ngModel)]="godinaizd" [placeholder]="k.godinaIzdavanja" [value]="k.godinaIzdavanja" >
+        </tr>
+        <tr>
+            <td>Broj knjiga:</td>
+            <input type="number" name="brojKnjiga" [(ngModel)]="broj" [placeholder]="k.brojKnjiga" [value]="k.brojKnjiga" >
+        </tr>
+        <tr>
+            <td>Zanr: </td>
+            {{k.zanr}}
+            <br>
+            <select [(ngModel)]="zanr" name="zanr">
+                <option value="arheologija">arheologija</option>
+                <option value="arhitektura">arhitektura</option>
+                <option value="autobiografija">autobigrafija</option>
+                <option value="beletristika">beletristika</option>
+                <option value="bibliofilija-antikvarne">bibliofilija-antikvarne</option>
+                <option value="biografija">biografija</option>
+                <option value="biznis">biznis</option>
+                <option value="decije">decije</option>
+                <option value="drame">drame</option>
+                <option value="elektrotehnika">elektrotehnika</option>
+                <option value="enciklopedija">enciklopedija</option>
+                <option value="eseji">eseji</option>
+                <option value="film">film</option>
+                <option value="fantastika">fantastika</option>
+                <option value="filozofija">filozofija</option>
+                <option value="fizika">fizika</option>
+                <option value="klasika">klasika</option>
+                <option value="memoari">memoari</option>
+                <option value="poezija">poezija</option>
+                <option value="putopisi">putopisi</option>
+            </select>
+        </tr>
+        <tr>
+            <td>
+                Stara slika: <img [src]="k.img">
+               </td> 
+        </tr>
+        <br>
+        <br>
+        <tr>
+            <td>Slika:</td>
+        </tr>
+        <tr>
+            <input type="file" name="slika" (change)="izaberiSliku($event)">
+        </tr>
+        {{godinaizd}}
+        {{naziv}}
+    </table>
+    <button (click)="azurirajKnjigu(k)">Azuriraj knjigu</button>
+</div>
+</div>
+    
+
+<div *ngIf="kor.tip=='admin' && !postojiKnj">
+    <h4>Azuriraj korisnika</h4>
+    <table>
+    <tr>
+        <td>Ime:</td>
+        <input type="text" name="ime" [(ngModel)]="ime"  [placeholder]="klikkor.ime" [value]="klikkor.ime" >
+    </tr>
+    <tr>
+        <td>Prezime:</td>
+        <input type="text" name="prezime" [(ngModel)]="prezime"  [placeholder]="klikkor.prezime" [value]="klikkor.prezime" >
+    </tr>
+    
+    <tr>
+        <td>Adresa:</td>
+        <input type="text" name="adresa" [(ngModel)]="adresa"  [placeholder]="klikkor.adresa" [value]="klikkor.adresa" >
+    </tr>
+    <tr>
+        <td>Kontakt:</td>
+        <input type="text" name="kontakt" [(ngModel)]="kontakt"  [placeholder]="klikkor.kontakt" [value]="klikkor.kontakt" >
+    </tr>
+    <tr>
+        Stari tip:  {{klikkor.tip}}
+        <td>Novi tip:</td>
+       
+       <select [(ngModel)]="tip" name="tip">
+          <option value="moder">moderator</option>
+          <option value="citalac">citalac</option>
+       </select>
+    </tr>
+    <tr>
+        <td>Slika:</td>
+    </tr>
+    <tr>
+        <input type="file" name="slika1" (change)="izaberiSliku($event)">
+    </tr>
+</table>
+<button (click)="azurirajKorisnika(klikkor)">Azuriraj korisnika</button>
+
+</div>
+
+<div *ngIf="postojiKnj">
+    <h5>Azuriraj knjigu</h5>
+        <table>
+            <tr>
+                <td>Naziv:</td>
+                <input type="text" name="naziv" [(ngModel)]="naziv"  [placeholder]="klikknj.naziv" [value]="klikknj.naziv" >
+            </tr>
+            <tr>
+                <td>Autor:</td>
+                <input type="text" name="pisac" [(ngModel)]="pisac"  [placeholder]="klikknj.pisac" [value]="klikknj.pisac" >
+            </tr>
+            <tr>
+                <td>Jezik:</td>
+                <input type="text"  name="jezik" [(ngModel)]="jezik" [placeholder]="klikknj.jezik" [value]="klikknj.jezik">
+            </tr>
+            <tr>
+                <td>Izdavac:</td>
+                <input type="text" name="izdavac" [(ngModel)]="izdavac" [placeholder]="klikknj.izdavac" [value]="klikknj.izdavac" >
+            </tr>
+            <tr>
+                <td>Godina izdanja:</td>
+                <input type="number" name="godinaIzdavanja" [(ngModel)]="godinaizd" [placeholder]="klikknj.godinaIzdavanja" [value]="klikknj.godinaIzdavanja" >
+            </tr>
+            <tr>
+                <td>Broj knjiga:</td>
+                <input type="number" name="brojKnjiga" [(ngModel)]="broj" [placeholder]="klikknj.brojKnjiga" [value]="klikknj.brojKnjiga" >
+            </tr>
+            <tr>
+                <td>Zanr: </td>
+                {{klikknj.zanr}}
+                <br>
+                <select  name="zanr" multiple="true" (change)="dodajZanr($event)">
+                    <option *ngFor="let z of zanrovi" [value]="z">{{z}}</option>
+                </select>
+              
+            </tr>
+            <tr>
+                <td>
+                    Stara slika: <img [src]="klikknj.img">
+                   </td> 
+            </tr>
+            <br>
+            <br>
+            <tr>
+                <td>Slika:</td>
+            </tr>
+            <tr>
+                <input type="file" name="slika" (change)="izaberiSliku($event)">
+            </tr>
+            
+        </table>
+        <button (click)="azurirajKnjigu(klikknj)">Azuriraj knjigu</button>
+    </div>
+<button (click)="vratiSe()">Nazad na pocetnu</button>
+<br>
+<button (click)="pocetna()">Nazad na glavnu</button>
+    </div>
+    <div class="footer"></div>
+</body>
+

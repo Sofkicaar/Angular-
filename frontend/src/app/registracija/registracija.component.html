@@ -1,0 +1,94 @@
+<body>
+    <div class="header">
+
+        <h1>REGISTRACIJA</h1>
+    </div>
+<div class="pozadina">
+    <h2>Registruj se</h2>
+<table>
+   
+    <tr>
+        <td>Ime:</td>
+        <td>
+            <input type="text" name="ime" [(ngModel)]="ime">
+        </td>
+    </tr>
+    <tr>
+        <td>Prezime:</td>
+        <td>
+            <input type="text" name="prezime" [(ngModel)]="prezime">
+        </td>
+    </tr>
+    <tr>
+        <td>Imejl:</td>
+        <td>
+            <input type="text" name="imejl" [(ngModel)]="imejl">
+        </td>
+    </tr>
+    <tr>
+        <td>Adresa:</td>
+        <td>
+            <input type="text" name="adresa" [(ngModel)]="adresa">
+        </td>
+    </tr>
+    <tr>
+        <td>Kontakt telefon:</td>
+        <td>
+            <input type="text" name="kontakt" [(ngModel)]="kontakt">
+        </td>
+    </tr>
+    <tr>
+        <td>Korisnicko ime:</td>
+        <td>
+            <input type="text" name="korisnicko_ime" [(ngModel)]="korisnicko_ime">
+        </td>
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td>
+            <input type="password" name="lozinka" [(ngModel)]="lozinka">
+        </td>
+    </tr>
+    <tr>
+        <td>Potvrda lozinke:</td>
+        <td>
+            <input type="password" name="lozinka" [(ngModel)]="lozinkaR">
+        </td>
+    </tr>
+    <tr>
+        <td>Tip korisnika:</td>
+        <td>
+            <select [(ngModel)]="tip">
+                <option value="citalac">citalac</option>
+                <option value="moder">moderator</option>
+                
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Slika (opciono)</td>
+        <input type="file" name="slika" (change)="izaberiSliku($event)">
+        {{poruka}}
+    </tr>
+    <tr>
+        <img src="{{url}}">
+      
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="registracija()">Posalji zahtev</button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="pocetna()">Nazad na pocetnu stranu</button>
+        </td>
+    </tr>
+
+</table>
+
+<span style='color: red'>{{poruka}}</span>
+</div>
+<div class="footer"></div>
+</body>
+

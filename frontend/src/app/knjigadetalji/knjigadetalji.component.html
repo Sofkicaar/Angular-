@@ -1,0 +1,179 @@
+
+<body>
+    <div class="header">
+        <h1>DETALJI</h1>
+    </div>
+    <div class="pozadina">
+<div *ngIf="pretrazene">
+    <h3>Informacije o trazenoj knjizi</h3>
+        <img [src]="knjig.img"/>
+        <table>
+            <tr>
+                <td>Id knjige</td>
+                <td>{{knjig.idKnj}}</td>
+            </tr>
+            <tr>
+                <td>Naziv</td>
+                <td>{{knjig.naziv}}</td>
+            </tr>
+            <tr>
+                <td>Autor</td>
+                <td>{{knjig.pisac}}</td>
+            </tr>
+            <tr>
+                <td>Zanr</td>
+                <td>{{knjig.zanr}}</td>
+            </tr>
+            <tr>
+                <td>Izdavac</td>
+                <td>{{knjig.izdavac}}</td>
+            </tr>
+            <tr>
+                <td>Godina izdavanja</td>
+                <td>{{knjig.godinaIzdavanja}}</td>
+            </tr>
+            <tr>
+                <td>Jezik</td>
+                <td>{{knjig.jezik}}</td>
+            </tr>
+            <tr>
+                <td>Broj knjiga na stanju</td>
+                <td>{{knjig.brojKnjiga}}</td>
+            </tr>
+           
+            <tr>
+               
+                <button (click)="zaduzi()">Zaduzi knjigu</button>
+                <span style="color: red">{{ poruka }}</span>
+            </tr>
+            <div *ngIf="komentari.length!=0">
+               <div *ngFor="let kom of komentari">
+            <tr>
+                <td>Ocena:</td>
+                <td>{{kom.ocena}}</td>
+            </tr>
+            <tr>
+                <td>Prosecna ocena:</td>
+                <td>{{prosecna}}</td>
+            </tr>
+            <tr>
+                <td>Komentar:</td>
+                <td>{{kom.kom}}</td>
+            </tr>
+            <tr>
+                <td>Ostavio:</td>
+                <td>{{kom.ostavio}}</td>
+            </tr>
+            <tr>
+                <td>Datum i vreme:</td>
+                <td>{{kom.datum}}</td>
+            </tr>
+        </div>
+       
+            </div>
+
+            <tr>
+                <td>Dodaj komentar</td>
+                <textarea name="komm" [(ngModel)]="komm" maxlength="1000"></textarea>
+            </tr>
+            <tr>
+                <td>Dodaj ocenu</td>
+                <input type="number" name="ocena" [(ngModel)]="ocena" >
+            </tr>
+            <button (click)="ostavi(knjig)">Dodaj kom</button>
+            <tr>
+                
+                <span style="color: red">{{ porukakom }}</span>
+            </tr>
+        </table>
+        <br>
+       
+    </div>
+
+
+<div *ngIf="!pretrazene">
+   <h4>Informacije o zaduzenoj knjizi</h4>
+        <img [src]="zaduzena.img"/>
+        <table>
+            <tr>
+                <td>Id knjige</td>
+                <td>{{zaduzena.idKnj}}</td>
+            </tr>
+            <tr>
+                <td>Naziv</td>
+                <td>{{zaduzena.naziv}}</td>
+            </tr>
+            <tr>
+                <td>Autor</td>
+                <td>{{zaduzena.pisac}}</td>
+            </tr>
+            <tr>
+                <td>Zanr</td>
+                <td>{{zaduzena.zanr}}</td>
+            </tr>
+            <tr>
+                <td>Izdavac</td>
+                <td>{{zaduzena.izdavac}}</td>
+            </tr>
+            <tr>
+                <td>Godina izdavanja</td>
+                <td>{{zaduzena.godinaIzdavanja}}</td>
+            </tr>
+            <tr>
+                <td>Jezik</td>
+                <td>{{zaduzena.jezik}}</td>
+            </tr>
+            <tr>
+                <td>Broj knjiga na stanju</td>
+                <td>{{zaduzena.brojKnjiga}}</td>
+            </tr>
+            <div *ngFor="let k of komentari">
+                <tr>
+                    <td>Prosecna ocena:</td>
+                    <td>{{prosecna}}</td>
+                </tr>
+                
+            <tr>
+                <td>Ocena:</td>
+                {{k.ocena}}
+            </tr>
+            <tr>
+                <td>Komentar:</td>
+                <td>{{k.kom}}</td>
+            </tr>
+            <tr>
+                <td>Ostavio:</td>
+                <td>{{k.ostavio}}</td>
+            </tr>
+            <tr>
+                <td>Datum i vreme ostavljanja komentara:</td>
+                <td>{{k.datum}}</td>
+            </tr>
+        </div>
+
+            <tr>
+            <tr>
+                <td>Dodaj komentar</td>
+                <textarea name="komm" [(ngModel)]="komm"></textarea>
+            </tr>
+            <tr>
+                <td>Dodaj ocenu</td>
+               
+               <input type="number" name="ocena" [(ngModel)]="ocena">
+            </tr>
+            <button (click)="ostavi(zaduzena)">Dodaj kom</button>
+            <tr>
+                
+                <span style="color: red">{{ porukakom }}</span>
+            </tr>
+        </table>
+    </div>
+
+
+<button (click)="vratiSe()">Nazad na pocetnu</button>
+<br>
+<button (click)="pocetna()">Nazad na glavnu</button>
+</div>
+<div class="footer"></div>
+</body>
+

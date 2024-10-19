@@ -1,0 +1,39 @@
+<body>
+  <div class="header">
+    <h1>CITALAC</h1>
+  </div>
+  <div class="pozadina">
+<button mat-button [matMenuTriggerFor]="menu">Meni</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="pretrazi()">Pretrazi knjige</button>
+  <button mat-menu-item (click)="profil()">Profil korisnika</button>
+  <button mat-menu-item (click)="istorija()">Istorija zaduzenih knjiga</button>
+  <button mat-menu-item (click)="zaduzeneKnjige()">
+    Pregled zaduzenih knjiga
+  </button>
+  <button *ngIf="kor.blokiran==0" mat-menu-item (click)="dodajZahtev()">Dodaj zahtev za knjigu</button>
+  <button mat-menu-item (click)="vratiSe()">Nazad na glavnu stranicu</button>
+  <button mat-menu-item (click)="logout()">Odjavi se</button>
+ 
+</mat-menu>
+<br>
+<div *ngIf="knjiga!=null">
+<img height="100" [src]="knjiga.img" />
+<table>
+  <tr>
+    <td>Naziv knjige</td>
+    <td>{{ knjiga.naziv }}</td>
+  </tr>
+  <tr>
+    <td>Autor knjige</td>
+    <td>{{ knjiga.pisac }}</td>
+  </tr>
+  <tr>
+    <td>Ocena knjige</td>
+    <td>{{ knjiga.ocena }}</td>
+  </tr>
+</table>
+</div>
+</div>
+<div class="footer"></div>
+</body>

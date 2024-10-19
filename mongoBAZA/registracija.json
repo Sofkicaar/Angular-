@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "630e41bc73d610e20d2dcce7"
+  },
+  "ime": "Andrej",
+  "prezime": "Andrejic",
+  "korisnicko_ime": "andrej",
+  "lozinka": "Andrej123!",
+  "tip": "citalac",
+  "imejl": "andrej123@gmail.com",
+  "kontakt": "06547364",
+  "adresa": "Andrej andr 1, Beograd",
+  "img": "../../assets/pp.jpeg",
+  "prihvati": 1,
+  "__v": 0
+}]

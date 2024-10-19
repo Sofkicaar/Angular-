@@ -1,0 +1,38 @@
+<body>
+    <div class="header">
+        <h1>PRIJAVA</h1>
+    </div>
+    <div class="pozadina">
+    <h2>Prijava na sistem</h2>
+<table>
+    <tr>
+        <td>Korisnicko ime: </td>
+        <td>
+            <input type="text" name="korisnicko_ime" [(ngModel)]="korisnicko_ime">
+        </td>
+    </tr>
+    <tr>
+        <td>Lozinka: </td>
+        <td>
+            
+            <input type="password" name="lozinka" [(ngModel)]="lozinka">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="login()">Uloguj se</button>
+        </td>
+
+    </tr>
+</table>
+
+<a routerLink="/adminlog">Admin</a>
+<br>
+<button (click)="vratiSe()">Nazad na pocetnu stranu</button>
+<span style='color: red'>{{poruka}}</span>
+
+</div>
+<div class="footer">
+   
+</div>
+</body>

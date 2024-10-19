@@ -1,0 +1,29 @@
+<body>
+  <div class="header">
+    <h2>ISTORIJA</h2>
+  </div>
+  <div class="pozadina">
+<h1>Istorija zaduzenja</h1>
+<table matSort (matSortChange)="sortiraj($event)">
+    <tr>
+      <th mat-sort-header="naziv">Naziv</th>
+      <th mat-sort-header="autor">Autor</th>
+      <th mat-sort-header="datumZad">Datum zaduzenja</th>
+      <th mat-sort-header="datumVrac">Datum vracanja</th>
+      <th mat-sort-header="detalji(k)">Detalji knjige</th>
+    </tr>
+  
+    <tr *ngFor="let k of knjige">
+      <td>{{k.naziv}}</td>
+      <td>{{k.autor}}</td>
+      <td>{{k.datumZad}}</td>
+      <td>{{k.datumVrac}}</td>
+      <td><button (click)="detalji(k)">Detalji</button></td>
+    </tr>
+  </table>
+  <button (click)="vratiSe()">Nazad na pocetnu</button>
+  <br>
+  <button (click)="pocetna()">Nazad na glavnu</button>
+</div>
+<div class="footer"></div>
+</body>

@@ -1,0 +1,28 @@
+<body>
+<div class="header">
+    <h1>BIRSANJE KNJIGA</h1>
+</div>
+<div class="pozadina">
+<div *ngFor="let k of knjige">
+    <table>
+        <tr>
+            <td>Id knjige: </td>
+            {{k.idKnj}}
+
+        </tr>
+        <tr>
+            <td>Naziv knjige: </td>
+            {{k.naziv}}
+            <button (click)="obrisi(k.idKnj)">Obrisi knjigu</button>
+            <span style='color: red'>{{poruka}}</span>
+        </tr>
+
+    </table>
+</div>
+
+<button (click)="vratiSe()">Nazad na pocetnu admin</button>
+<br>
+<button (click)="pocetna()">Nazad na glavnu</button>
+</div>
+<div class="footer"></div>
+</body>

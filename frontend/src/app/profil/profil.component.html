@@ -1,0 +1,89 @@
+<body>
+    <div class="header">
+        <h1>PROFIL</h1>
+    </div>
+    <div class="pozadina">
+<h3>Profil korisnika</h3>
+<table>
+    <tr>
+        <td>Ime: </td>
+        <td>{{cit.ime}}</td>
+    </tr>
+    <tr>
+        <td>Prezime: </td>
+        <td>{{cit.prezime}}</td>
+    </tr>
+    <tr>
+        <td>Imejl: </td>
+        <td>{{cit.imejl}}</td>
+    </tr>
+    <tr>
+        <td>Adresa: </td>
+        <td>{{cit.adresa}}</td>
+    </tr>
+    <tr>
+        <td>Kontakt: </td>
+        <td>{{cit.kontakt}}</td>
+    </tr>
+    <tr>
+       
+        <td><img src="{{cit.img}}"></td>
+    </tr>
+</table>
+<br>
+
+
+<div *ngIf="cit.blokiran==0">
+<h4>Azuriraj podatke</h4>
+<table>
+    <tr>
+        <td>Ime:</td>
+        <input type="text" name="ime" [(ngModel)]="ime"  [placeholder]="cit.ime" [value]="cit.ime" >
+    </tr>
+    <tr>
+        <td>Prezime:</td>
+        <input type="text" name="prezime" [(ngModel)]="prezime"  [placeholder]="cit.prezime" [value]="cit.prezime" >
+    </tr>
+    <tr>
+        <td>Korisnicko ime:</td>
+        <input type="text" name="korIme" [(ngModel)]="korIme"  [placeholder]="cit.korisnicko_ime" [value]="cit.korisnicko_ime" >
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <input type="password" name="lozinka" [(ngModel)]="lozinka"  [placeholder]="cit.lozinka" [value]="cit.lozinka" >
+    </tr>
+    <tr>
+        <td>Adresa:</td>
+        <input type="text" name="adresa" [(ngModel)]="adresa"  [placeholder]="cit.adresa" [value]="cit.adresa" >
+    </tr>
+    <tr>
+        <td>Imejl:</td>
+        <input type="text" name="imejl" [(ngModel)]="imejl"  [placeholder]="cit.imejl" [value]="cit.imejl" >
+    </tr>
+    <tr>
+        <td>Kontakt:</td>
+        <input type="text" name="kontakt" [(ngModel)]="kontakt"  [placeholder]="cit.kontakt" [value]="cit.kontakt" >
+    </tr>
+    <tr>
+        <td>Tip:</td>
+        {{cit.tip}}
+       <select [(ngModel)]="tip" name="tip">
+          
+          <option value="citalac">citalac</option>
+       </select>
+    </tr>
+    <tr>
+        <td>Slika:</td>
+    </tr>
+    <tr>
+        <input type="file" name="slika1" (change)="izaberiSliku($event)">
+    </tr>
+</table>
+<button (click)="azurirajPodatke(cit)">Azuriraj</button>
+</div>
+<span style='color: red'>{{poruka}}</span>
+<button (click)="vratiSe()">Nazad na pocetnu</button>
+</div>
+<div class="footer"></div>
+</body>
+

@@ -1,0 +1,32 @@
+<body>
+    <div class="header">
+        <h1>BRISANJE KORISNIKA</h1>
+    </div>
+    <div class="pozadina">
+<div *ngFor="let k of korisnici">
+    <div *ngIf="k.tip!='admin'">
+        <table>
+            <tr>
+                
+                <td>Ime korisnika:</td>
+                {{k.ime}} 
+            </tr>
+            
+            <tr>
+                <td>Prezime korisnika:</td>
+                {{k.prezime}}
+                    <button (click)="obrisi(k.korisnicko_ime)">Obrisi korisnika</button>
+                    
+            </tr>
+    
+        </table>
+    </div>
+    
+</div>
+<span style='color: red'>{{poruka}}</span>
+<button (click)="vratiSe()">Nazad na pocetnu admin</button>
+<br>
+<button (click)="pocetna()">Nazad na glavnu</button>
+<div class="footer"></div>
+</div>
+</body>

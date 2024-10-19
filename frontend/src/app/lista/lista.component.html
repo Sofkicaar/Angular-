@@ -1,0 +1,62 @@
+<body>
+    <div class="header">
+      <h2>ZAHTEVI</h2>
+    </div>
+    <div class="pozadina">
+        <h1>Zahtevi za dodavanje knjige</h1>
+
+<div *ngFor="let z of zahtevi">
+   <div *ngIf="z.prihvati==0">
+        <table>
+            <tr>
+                <td>Id knjige:</td>
+                <td>{{z.idKnj}}</td>
+            </tr>
+            <tr>
+                <td>Naziv:</td>
+                <td>{{z.naziv}}</td>
+            </tr>
+            <tr>
+                <td>Autor:</td>
+                <td>{{z.pisac}}</td>
+            </tr>
+            <tr>
+                <td>Zanr:</td>
+                <td>{{z.zanr}}</td>
+            </tr>
+            <tr>
+                <td>Izdavac:</td>
+                <td>{{z.izdavac}}</td>
+            </tr>
+            <tr>
+                <td>Godina izdavanja:</td>
+                <td>{{z.godinaIzdavanja}}</td>
+            </tr>
+            <tr>
+                <td>Jezik:</td>
+                <td>{{z.jezik}}</td>
+            </tr>
+            <tr>
+                <td>Broj knjiga:</td>
+                <td>{{z.brojKnjiga}}</td>
+            </tr>
+            <tr>
+                <td>Slika:</td>
+                <td>{{z.img}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <button (click)="prihvati(z)">Prihvati</button>
+                </td>
+                <td>
+                    <button (click)="odbij(z)">Odbij</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+<button (click)="vratiSe()">Nazad na pocetnu</button>
+<button (click)="pocetna()">Nazad na glavnu</button>
+</div>
+ <div class="footer"></div>
+</body>

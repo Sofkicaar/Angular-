@@ -1,0 +1,67 @@
+<body>
+  <div class="header">
+    <h1>PRETRAGA</h1>
+  </div>
+  <div class="pozadina">
+    <h2>Pretrazi knjigu</h2>
+  
+<input type="text" name="pretraziNaziv" [(ngModel)]="searchParam1" />
+<br />
+<button (click)="pretraziNaziv()">Pretrazi knjigu</button>
+<br>
+
+
+
+<div *ngFor="let k of pretrazeneKnjige2">
+  <h3>Knjige:</h3>
+  <div *ngIf="kor==null">
+    <img [src]="k.img" height="170px" width="150px"/>
+  </div>
+  
+  <div *ngIf="kor!=null && kor.blokiran==1">
+    <img [src]="k.img" height="170px" width="150px"/>
+  </div>
+  <div *ngIf="kor!=null && kor.blokiran==0">
+   
+  <button (click)="knjigaDetalji(k)"><img [src]="k.img" height="170px" width="150px"/></button>
+  </div>
+  <br>
+  
+  <table>
+    <tr>
+      <td>Id knjige</td>
+      <td>{{ k.idKnj }}</td>
+    </tr>
+    <tr>
+      <td>Naziv</td>
+      <td>{{ k.naziv }}</td>
+    </tr>
+    <tr>
+      <td>Autor</td>
+      <td>{{ k.pisac }}</td>
+    </tr>
+    <tr>
+      <td>Zanr</td>
+      <td>{{ k.zanr }}</td>
+    </tr>
+    <tr>
+      <td>Izdavac</td>
+      <td>{{ k.izdavac }}</td>
+    </tr>
+    <tr>
+      <td>Godina izdavanja</td>
+      <td>{{ k.godinaIzdavanja }}</td>
+    </tr>
+    <tr>
+      <td>Jezik</td>
+      <td>{{ k.jezik }}</td>
+    </tr>
+  </table>
+  <button  [hidden]="kor==null || (kor!=null && kor.blokiran==1) || (kor!=null && kor.tip=='citalac')" (click)=azurir()>Azuriraj knjigu</button>
+</div>
+<span style="color: red">{{ poruka }}</span>
+<br>
+<button (click)="vratiSe()">Nazad na pocetnu</button>
+</div>
+<div class="footer"></div>
+</body>

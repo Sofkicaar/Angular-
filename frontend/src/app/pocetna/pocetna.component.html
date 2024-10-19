@@ -1,0 +1,47 @@
+
+
+
+<body>
+  <div  class="header">
+  
+      <h2>Biblioteka Kralj Petar</h2>
+    
+  </div>
+  <div class="pozadina">
+    
+    <br>
+  <button mat-button [matMenuTriggerFor]="menu">Meni</button>
+  <mat-menu #menu="matMenu" yPosition="above">
+      <button *ngIf="log==false" mat-menu-item (click)="login()" >Uloguj se</button>
+      <button *ngIf="log==false" mat-menu-item (click)="registracija()">Registracija</button>
+      <button mat-menu-item (click)="pretrazi()" >Pretrazi</button>
+      <button *ngIf="log==true" mat-menu-item (click)="profil()"><img src={{kor.img}} height="37px" width="40px"></button>
+      <button *ngIf="moder==true || admin==true" mat-menu-item (click)="dodajKnjigu()">Dodaj knjigu</button>
+      <button *ngIf="log==true" mat-menu-item (click)="promeniSifru()">Promeni sifru</button>
+      <button *ngIf="log==true" mat-menu-item (click)="odjava()">Odjavi se</button>
+  
+  </mat-menu>
+  
+  
+  
+  
+  
+  
+  <h2 style="text-align:center">Najcitanije knjige</h2>
+  
+  
+  <mat-tab-group [selectedIndex]="in"
+             >
+    <mat-tab *ngFor="let k of sveTri; let index = index" >
+     
+    <img [src]="k.img" alt="Random slide" width="240px" height="350px">  
+  
+    
+    </mat-tab>
+  </mat-tab-group>
+  <button (click)="uvecaj()">sledeci</button>
+  </div>
+  
+  <div class="footer"></div>
+  
+  </body>

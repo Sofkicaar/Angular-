@@ -1,0 +1,38 @@
+<body>
+  <div class="header">
+    <h1>MODERATOR</h1>
+  </div>
+  <div class="pozadina">
+<button mat-button [matMenuTriggerFor]="menu">Meni</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="pretrazi()">Pretrazi knjige</button>
+  <button mat-menu-item (click)="profil()">Profil korisnika</button>
+  <button mat-menu-item (click)="dodajKnj()">
+    Dodaj knjigu
+  </button>
+  <button mat-menu-item (click)="lista()">Zahtevi za knjige</button>
+  <button mat-menu-item (click)="vratiSe()">Nazad na glavnu stranicu</button>
+  <button mat-menu-item (click)="logout()">Odjavi se</button>
+  
+</mat-menu>
+
+<div *ngIf="postoji">
+  <img height="100" [src]="knjiga.img" />
+<table>
+  <tr>
+    <td>Naziv knjige</td>
+    <td>{{ knjiga.naziv }}</td>
+  </tr>
+  <tr>
+    <td>Autor knjige</td>
+    <td>{{ knjiga.pisac }}</td>
+  </tr>
+  <tr>
+    <td>Ocena knjige</td>
+    <td>{{ knjiga.ocena }}</td>
+  </tr>
+</table>
+</div>
+</div>
+<div class="footer"></div>
+</body>
